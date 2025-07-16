@@ -29,8 +29,6 @@ appServer.use(express.json({ limit: "10mb" }));
 appServer.use(express.urlencoded({ limit: "10mb", extended: true }));
 appServer.use("/api/v1", router);
 
-
-
 appServer.use((req, res, next) => {
   res.status(404).json({
     status: "error",

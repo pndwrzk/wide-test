@@ -5,7 +5,6 @@ export interface Category {
   updated_at?: string;
 }
 
-
-
-export interface CategoryRequestAttributes {  name: string;
-} 
+export interface CategoryRequestAttributes {
+  name: string;
+}

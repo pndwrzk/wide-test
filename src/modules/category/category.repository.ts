@@ -10,21 +10,21 @@ const categoryRepository = {
     return DB.Category.findAll();
   },
 
-  // Get category by ID
+ 
   getCategoryById: async (id: number): Promise<Category | null> => {
     return DB.Category.findOne({
       where: { id },
     });
   },
 
-  // Create new category
+
   createCategory: async (
     category: CategoryRequestAttributes
   ): Promise<Category> => {
     return DB.Category.create(category);
   },
 
-  // Update category
+ 
   updateCategory: async (
     id: number,
     updateData: Partial<CategoryRequestAttributes>
@@ -39,7 +39,7 @@ const categoryRepository = {
     return updatedCount > 0 ? updatedCategory : null;
   },
 
-  // Delete category
+ 
   deleteCategory: async (id: number): Promise<boolean> => {
     const deletedCount = await DB.Category.destroy({
       where: { id },

@@ -51,15 +51,15 @@ const OrderItem = OrderItemModelDef(sequelize);
 
 // Set up associations
 
-// Product ↔ Category
+
 Product.belongsTo(Category, { foreignKey: "category_id", as: "categories" });
 Category.hasMany(Product, { foreignKey: "category_id", as: "products" });
 
-// Cart ↔ Product
+
 Cart.belongsTo(Product, { foreignKey: "product_id", as: "product" });
 Product.hasMany(Cart, { foreignKey: "product_id", as: "carts" });
 
-// Order ↔ OrderItems
+
 Order.hasMany(OrderItem, {
   foreignKey: "order_id",
   as: "items",
@@ -70,7 +70,7 @@ OrderItem.belongsTo(Order, {
   as: "order",
 });
 
-// OrderItem ↔ Product
+
 OrderItem.belongsTo(Product, {
   foreignKey: "product_id",
   as: "product",
@@ -80,13 +80,13 @@ Product.hasMany(OrderItem, {
   as: "order_items",
 });
 
-// Test DB connection
+
 sequelize.authenticate().then(
-  () => console.info(`✅ DB ${DB_DIALECT} connected.`),
-  (err) => console.error("❌ DB connection failed:", err)
+  () => console.info(`DB ${DB_DIALECT} connected.`),
+  (err) => console.error("DB connection failed:", err)
 );
 
-// Export semuanya
+
 export const DB = {
   sequelize,
   Sequelize,
