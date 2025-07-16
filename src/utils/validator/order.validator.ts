@@ -1,8 +1,6 @@
 import Joi, { ValidationResult } from "joi";
-import {
-  CartRequestAttributes,
-  OrderItemCreationAttributes,
-} from "@/interfaces/order.interfaces";
+import { CartRequestAttributes } from "@/interfaces/cart.interfaces";
+import { OrderItemCreationAttributes } from "@/interfaces/order.interfaces";
 
 export const validateCreateOrderItem = (
   body: OrderItemCreationAttributes

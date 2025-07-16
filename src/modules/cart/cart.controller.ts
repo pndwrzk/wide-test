@@ -1,5 +1,9 @@
 import { validateCreateCart } from "@/utils/validator/order.validator";
-import { addToCartService, getAllCartsService } from "./cart.service";
+import {
+  addToCartService,
+  deleteCartService,
+  getAllCartsService,
+} from "./cart.service";
 import { NextFunction, Response, Request } from "express";
 import httpStatus from "http-status";
 import { CustomError, DataValidator } from "@/utils/custom-error";
@@ -43,6 +47,26 @@ export const getAllCartsController = async (
       status: httpStatus[httpStatus.OK as keyof typeof httpStatus],
       message: "Successfully retrieved all carts.",
       data: carts,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteCartController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { id } = req.params;
+    await deleteCartService(Number(id));
+    res.status(httpStatus.OK).json({
+      status: httpStatus[httpStatus.OK as keyof typeof httpStatus],
+      message: "Cart deleted successfully.",
+      data: {
+        id: Number(id),
+      },
     });
   } catch (error) {
     next(error);

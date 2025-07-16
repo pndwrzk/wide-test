@@ -4,7 +4,7 @@ import {
   CartResponseAttributes,
   ItemsCart,
   CartWithProductAndCategory,
-} from "@/interfaces/order.interfaces";
+} from "@/interfaces/cart.interfaces";
 import repository from "./cart.repository";
 import productRepository from "@/modules/product/product.repository";
 import { CustomError } from "@/utils/custom-error";
@@ -71,3 +71,12 @@ export const addToCartService = async (
   await repository.createCart(cart);
   return;
 };
+
+
+export const deleteCartService = async (id: number): Promise<void> => {
+  const cart = await repository.findCartById(id);
+  if (!cart) {
+    throw new CustomError("Cart not found", httpStatus.NOT_FOUND);
+  }
+  await repository.deleteCart(cart.id);
+}

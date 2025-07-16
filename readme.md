@@ -14,8 +14,6 @@ Before running the service, ensure you have Docker and Docker Compose installed 
     ```
 2.  **Configure Variables:** Open the `.env` file and adjust the values of the variables inside according to your system configuration. Pay attention to the database configuration, ports, and other important variables.
 
-3.  **Google cloud Storage Config:** Update the service-account-key.json data from the file in the email attachment for Google Cloud Storage configuration.
-
 ## Running the Service with Docker Compose
 
 To run the service, use the following command:

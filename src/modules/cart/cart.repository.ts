@@ -1,6 +1,6 @@
 import { DB } from "@/database";
 import { CartCreationAttributes } from "@/database/models/cart.model";
-import { Cart } from "@/interfaces/order.interfaces";
+import { Cart } from "@/interfaces/cart.interfaces";
 
 const repository = {
   findAllCartsWithProduct: async () => {
@@ -44,6 +44,28 @@ const repository = {
   deleteCart: async (id: number) => {
     return await DB.Cart.destroy({ where: { id } });
   },
+  findCartById: async (id: number): Promise<Cart | null> => {
+    const cart = await DB.Cart.findByPk(id, {
+      include: [
+        {
+          model: DB.Product,
+          as: "product",
+          attributes: ["id", "name", "price"],
+          include: [
+            {
+              model: DB.Category,
+              as: "categories",
+              attributes: ["id", "name"],
+            },
+          ],
+        },
+      ],
+    });
+
+    if (!cart) return null;
+
+    return cart.toJSON() as Cart;
+  }
 };
 
 export default repository;

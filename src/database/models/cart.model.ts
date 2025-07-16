@@ -1,4 +1,4 @@
-import { Cart } from "@/interfaces/order.interfaces";
+import { Cart } from "@/interfaces/cart.interfaces";
 import { Product } from "@/interfaces/product.interfaces";
 import { Sequelize, DataTypes, Model, Optional } from "sequelize";
 
