@@ -36,3 +36,38 @@ After the service is running, you need to perform a database migration to create
     ```bash
     npm run migration
     ```
+
+
+## API Endpoints
+
+Below is a list of available API endpoints for the Wide Test Service:
+
+### Categories
+| Method | Endpoint                | Description                          |
+|--------|-------------------------|--------------------------------------|
+| GET    | `/categories`           | Retrieve a list of all categories    |
+| POST   | `/categories`           | Create a new category                |
+| PUT    | `/categories/:id`       | Update a category by ID              |
+| DELETE | `/categories/:id`       | Delete a category by ID              |
+| GET    | `/categories/:id`       | Retrieve a category by ID            |
+
+### Products
+| Method | Endpoint                | Description                          |
+|--------|-------------------------|--------------------------------------|
+| GET    | `/products`             | Retrieve a list of all products      |
+| POST   | `/products`             | Create a new product                 |
+| PUT    | `/products/:id`         | Update a product by ID               |
+| DELETE | `/products/:id`         | Delete a product by ID               |
+| GET    | `/products/:id`         | Retrieve a product by ID             |
+
+### Cart
+| Method | Endpoint                | Description                          |
+|--------|-------------------------|--------------------------------------|
+| POST   | `/cart`                 | Add an item to the cart              |
+| GET    | `/cart`                 | Retrieve all items in the cart       |
+| DELETE | `/cart/:id`             | Delete an item from the cart by ID   |
+
+### Orders
+| Method | Endpoint                | Description                          |
+|--------|-------------------------|--------------------------------------|
+| POST   | `/orders`               | Create a new order                   |
