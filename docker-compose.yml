@@ -1,0 +1,25 @@
+services:
+  app:
+    container_name: wide-test-service
+    build: .
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    working_dir: /app
+    
+  database:
+    image: postgres:latest
+    container_name: wide-db
+    environment:
+      POSTGRES_DB: wide_test_db
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

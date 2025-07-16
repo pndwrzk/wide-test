@@ -1,0 +1,38 @@
+{
+  "name": "wide-test-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && node dist/server.js",
+    "dev": "nodemon",
+    "build": "tsc && tsc-alias",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "migration": "sequelize db:migrate"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.0.1",
+    "http-status": "^2.1.0",
+    "joi": "^17.13.3",
+    "pg": "^8.13.3",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/http-status": "^0.2.30",
+    "@types/jsonwebtoken": "^9.0.9",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.2",
+    "sequelize-cli": "^6.6.2",
+    "tsc-alias": "^1.8.10",
+    "typescript-eslint": "^8.24.1"
+  }
+}
